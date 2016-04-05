@@ -1,0 +1,85 @@
+﻿@model IEnumerable<BootstrapSiteLCD.Models.Student>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+<h1 class="page-header">
+    @ViewBag.Title
+    <small>Studierenden bearbeiten</small>
+</h1>
+<p>
+    <input type="button" class="btn-default" value="Create New" onclick="partialLoad('/Students/_Create', 'GET', '_partialStudents', 'html', '');" />
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MatriculationNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prename)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Surname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Birthday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Birthplace)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExaminationNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Activ)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Registrationdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Expirationdate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MatriculationNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prename)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Surname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Birthday)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Birthplace)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExaminationNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Activ)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Registrationdate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Expirationdate)
+        </td>
+        <td>
+            <input type="button" class="btn-link" value="Edit" onclick="partialLoad('/Students/_Edit/'+  @item.Id, 'GET', '_partialStudents', 'html', ''); partialLoad('/Addresses/_Index/'+@item.Id, 'GET', '_partialAddresses', 'html', '');" /> |
+            <input type="button" class="btn-link" value="Details" onclick="partialLoad('/Students/_Details/'+  @item.Id, 'GET', '_partialStudents', 'html', '');" /> |
+            <input type="button" class="btn-link" value="Delete" onclick="partialLoad('/Students/_Delete/'+  @item.Id, 'GET', '_partialStudents', 'html', '');" />
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,86 @@
+﻿@model BootstrapSiteLCD.Models.Address
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = null;
+}
+
+<h1 class="page-header">
+    @ViewBag.Title
+    <small>Adresse bearbeiten</small>
+</h1>
+
+
+@using (Ajax.BeginForm("UpdateData", new AjaxOptions() { }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Address</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Street, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Street, new { @class = "form-control m-b" })
+                @Html.ValidationMessageFor(model => model.Street)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Postcode, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Postcode, new { @class = "form-control m-b" })
+                @Html.ValidationMessageFor(model => model.Postcode)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.StreetNo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+               @Html.TextBoxFor(model => model.StreetNo, new { @class = "form-control m-b" })
+                @Html.ValidationMessageFor(model => model.StreetNo)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Appendix, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Appendix, new { @class = "form-control m-b" })
+                @Html.ValidationMessageFor(model => model.Appendix)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.StudentId, "StudentId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("StudentId", null, new { @class = "form-control m-b" })
+                @Html.ValidationMessageFor(model => model.StudentId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CityId, "CityId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("CityId", null, new { @class = "form-control m-b" })
+                @Html.ValidationMessageFor(model => model.CityId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="button" value="Save" class="btn-default" onclick="ajaxSubmitAndView(this, '/Addresses/_Index/'+  @Model.StudentId, 'GET', '_partialAddresses', 'html', '');" />
+            </div>
+        </div>
+    </div>
+
+<div>
+    <input type="button" value="Back to List" class="btn-link" onclick="partialLoad('/Addresses/_Index/'+  @Model.StudentId, 'GET', '_partialAddresses', 'html', '');" />
+</div>
+    
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

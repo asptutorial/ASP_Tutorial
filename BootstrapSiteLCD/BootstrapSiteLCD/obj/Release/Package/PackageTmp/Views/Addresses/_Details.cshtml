@@ -1,0 +1,70 @@
+﻿@model BootstrapSiteLCD.Models.Address
+
+@{
+    ViewBag.Title = "Details";
+    Layout = null;
+}
+
+<h1 class="page-header">
+    @ViewBag.Title
+    <small>Adresse bearbeiten</small>
+</h1>
+
+<div>
+    <h4>Address</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Street)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Street)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Postcode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Postcode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StreetNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StreetNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Appendix)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Appendix)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.Prename)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.Prename)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <input type="button" class="btn-link" value="Edit" onclick="partialLoad('/Addresses/_Edit/'+  @Model.Id, 'GET', '_partialAddresses', 'html', '');" /> |
+    <input type="button" value="Back to List" class="btn-link" onclick="partialLoad('/Addresses/_Index/'+  @Model.StudentId, 'GET', '_partialAddresses', 'html', '');" />
+</p>
