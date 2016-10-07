@@ -3,6 +3,6 @@ Das Repository enthält die Projektdateien für die ASP.NET Einführung des LCD 
 
 Link zur fertigen APP (mit Pushnachrichten):
 
-http://bit.do/aspnettut
+http://bit.do/klips3
 
 
