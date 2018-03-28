@@ -3,6 +3,5 @@ Das Repository enthält die Projektdateien für die ASP.NET Einführung des LCD 
 
 Link zur fertigen APP (mit Pushnachrichten):
 
-http://lcdvorkurs.azurewebsites.net/
 
-
+http://lcd2018.azurewebsites.net/
