@@ -1,0 +1,61 @@
+﻿@model IEnumerable<StudentWebApplication.Models.Cours>
+
+@{
+    ViewBag.Title = "Ihre Belegungen";
+    Layout = null;
+}
+
+<h2>@ViewBag.Title</h2>
+<h4>Status: Anfrage (0), Belegt (1), Abgelehnt (-1)</h4>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaxStudents)
+        </th>
+        <th>Status</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaxStudents)
+        </td>
+        <td>
+            @{
+                int statusCode = item.StudentCourses.Where(x => x.CourseId == item.Id && x.Student.AspNetUser.UserName.Equals(User.Identity.Name)).First().StatusCode;
+
+                if (statusCode == -1)
+                {
+                    <img src="~/Content/img/not_accepted.png" alt="-1" style="width:50px;height:50px;">
+                }
+                else if (statusCode == 0)
+                {
+                    <img src="~/Content/img/waiting.png" alt="0" style="width:50px;height:50px;">
+
+                }
+                else if (statusCode == 1)
+                {
+                    <img src="~/Content/img/accepted.png" alt="1" style="width:50px;height:50px;">
+
+                }
+                else
+                {
+                }
+            }
+        </td>
+    </tr>
+}
+
+</table>

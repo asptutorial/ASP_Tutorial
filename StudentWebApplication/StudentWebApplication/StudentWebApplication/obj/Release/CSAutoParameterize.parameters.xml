@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Die in der Datei &amp;quot;web.config&amp;quot; festgelegte Verbindungszeichenfolge, die von der Anwendung für den Zugriff auf die Datenbank verwendet wird." defaultValue="Data Source=134.95.90.131;Initial Catalog=LCD2017_WS;Persist Security Info=True;User ID=ASP_Tutorial;password=LCD2017ws!;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=True" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\nadimo\\Desktop\\LCD\ Vorkurs\ 2017\\ASP_Tutorial_2017-master\\StudentWebApplication\\StudentWebApplication\\StudentWebApplication\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
-  </parameter>
-  <parameter name="DataConnection-Web.config Connection String" description="DataConnection Die in der Datei &amp;quot;web.config&amp;quot; festgelegte Verbindungszeichenfolge, die von der Anwendung für den Zugriff auf die Datenbank verwendet wird." defaultValue="metadata=res://*/Models.AdoNetDataModel.csdl|res://*/Models.AdoNetDataModel.ssdl|res://*/Models.AdoNetDataModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=134.95.90.131;initial catalog=LCD2017_WS;user id=ASP_Tutorial;password=LCD2017ws!;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\nadimo\\Desktop\\LCD\ Vorkurs\ 2017\\ASP_Tutorial_2017-master\\StudentWebApplication\\StudentWebApplication\\StudentWebApplication\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DataConnection']/@connectionString" />
-  </parameter>
-</parameters>
